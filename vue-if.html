@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue IF and Vue ELSE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div id="main">
+    <div id="container">
+        <div class="row">
+            <div class="col-md-5">
+                <!--<h3 v-if="!message">write a suggestion </h3>-->
+                <!--<h3 v-if="message">Press enter to send</h3>-->
+                <template v-if="!message">
+                    <h3>write a suggestion</h3>
+                    <p>the support team can answer at least 24 hours</p>
+                    <p>you can get support using twitter</p>
+                </template>
+                <h3 v-else="message">Press enter to send</h3>
+                <textarea name="" id="" cols="30" rows="10" v-model="message" class="form-control"></textarea>
+            </div>
+            <div class="col-md-5">
+                <h3>JSON</h3>
+                <pre>{{$data}}</pre>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<script>
+    //    var urlUsers= 'https://randomuser.me/api/?results=10';
+    var urlUsers = 'https://jsonplaceholder.typicode.com/users';
+    new Vue({
+        el: '#main',
+        data: {
+            message: ''
+        }
+
+    });
+</script>
+</body>
+</html>
